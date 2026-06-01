@@ -21,3 +21,117 @@
 
 </body>
 </html>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background:#000;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container{
+    position:relative;
+    text-align:center;
+}
+
+.warning-sign{
+    width:550px;
+    max-width:90vw;
+
+    animation:
+        flash 0.6s infinite,
+        pulse 2s infinite;
+}
+
+.warning-text{
+    margin-top:25px;
+    color:#ff0000;
+    font-size:48px;
+    font-weight:bold;
+    letter-spacing:8px;
+
+    animation: textFlash 0.6s infinite;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:red;
+    opacity:0;
+    pointer-events:none;
+
+    animation: roomFlash 0.6s infinite;
+}
+
+@keyframes flash{
+
+    0%{
+        opacity:1;
+        filter:
+            brightness(1.5)
+            drop-shadow(0 0 30px red)
+            drop-shadow(0 0 60px red)
+            drop-shadow(0 0 100px red);
+    }
+
+    50%{
+        opacity:0.35;
+        filter:
+            brightness(0.5)
+            drop-shadow(0 0 5px red);
+    }
+
+    100%{
+        opacity:1;
+        filter:
+            brightness(1.5)
+            drop-shadow(0 0 30px red)
+            drop-shadow(0 0 60px red)
+            drop-shadow(0 0 100px red);
+    }
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+}
+
+@keyframes textFlash{
+
+    0%,100%{
+        opacity:1;
+        text-shadow:
+            0 0 10px red,
+            0 0 20px red,
+            0 0 40px red;
+    }
+
+    50%{
+        opacity:0.2;
+    }
+}
+
+@keyframes roomFlash{
+
+    0%,100%{
+        opacity:0.05;
+    }
+
+    50%{
+        opacity:0;
+    }
+}
