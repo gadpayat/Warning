@@ -56,6 +56,7 @@
 
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,17 +76,21 @@ body{
 
 .warning-sign{
     width:500px;
-    animation:blink 1s infinite;
+    animation:alarmFlash 0.5s infinite;
 }
 
-@keyframes blink{
-    0%, 50%, 100%{
+@keyframes alarmFlash{
+    0%{
         opacity:1;
-        filter:drop-shadow(0 0 25px red);
+        filter:brightness(1.8) drop-shadow(0 0 40px red);
     }
-    25%, 75%{
-        opacity:0.2;
-        filter:none;
+    50%{
+        opacity:0.3;
+        filter:brightness(0.5);
+    }
+    100%{
+        opacity:1;
+        filter:brightness(1.8) drop-shadow(0 0 40px red);
     }
 }
 </style>
